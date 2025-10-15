@@ -82,72 +82,7 @@
                         </li>
                     @endcanany
                 @endif
-                @if (is_module_enabled('Blog'))
-                    @canany(['post.index', 'post.create', 'post.edit', 'post.delete', 'post.show', 'category.index',
-                        'tag.index'])
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow">
-                                <i class="bi bi-journal-text"></i>
-                                <span data-key="t-blogs">Blogs</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                @canany(['post.index', 'post.create', 'post.edit', 'post.delete', 'post.show'])
-                                    <li>
-                                        <a href="{{ route('posts.index') }}">
-                                            <i class="bi bi-file-earmark-text"></i>
-                                            <span data-key="t-posts">Posts</span>
-                                        </a>
-                                    </li>
-                                @endcanany
-
-                                @canany(['category.index', 'category.create', 'category.edit', 'category.delete',
-                                    'category.show'])
-                                    <li>
-                                        <a href="{{ route('categories.index') }}">
-                                            <i class="bi bi-grid"></i>
-                                            <span data-key="t-categories">Categories</span>
-                                        </a>
-                                    </li>
-                                @endcanany
-
-                                @canany(['tag.index', 'tag.create', 'tag.edit', 'tag.delete', 'tag.show'])
-                                    <li>
-                                        <a href="{{ route('tags.index') }}">
-                                            <i class="bi bi-tags"></i>
-                                            <span data-key="t-tags">Tags</span>
-                                        </a>
-                                    </li>
-                                @endcanany
-                            </ul>
-                        </li>
-                    @endcanany
-                @endif
-
-                @if (is_module_enabled('Events'))
-                    @can('event.index')
-                        <li>
-                            <a href="{{ route('events.index') }}">
-                                <i class="bi bi-calendar-event"></i>
-                                <span data-key="t-events">Events</span>
-                            </a>
-                        </li>
-                    @endcan
-                @endif
-
-                {{-- @if (is_module_enabled('Cases')) --}}
-                @can('cases.index')
-                    <li>
-                        <a href="{{ route('cases.index') }}">
-                            {{-- <i class="bi bi-folder"></i> --}}
-                            <i class="fas fa-file-medical-alt"></i>
-                            <span data-key="t-cases">Cases</span>
-                        </a>
-                    </li>
-                @endcan
-                {{-- @endif --}}
-
-
-
+            
 
                 <li class="menu-title" data-key="t-menu">Applications</li>
                 {{-- Contact --}}
@@ -206,17 +141,6 @@
                         </li>
                     @endcan
                 @endif
-
-                {{-- @if (is_module_enabled('UrlRedirector')) --}}
-                @can('urlredirector.index')
-                    <li>
-                        <a href="{{ route('urlredirector.index') }}">
-                            <i class="bi bi-link-45deg fs-2"></i>
-                            <span data-key="t-urlredirector">Url Redirector</span>
-                        </a>
-                    </li>
-                @endcan
-                {{-- @endif --}}
             </ul>
         </div>
     </div>

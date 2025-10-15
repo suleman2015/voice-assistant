@@ -1,13 +1,4 @@
 @php
-    // -----------------------------------------
-    // RECENT POSTS QUERIES
-    // -----------------------------------------
-    $recentPostsAll = Modules\Blog\Models\Post::latest()->get();
-    $recentPostsPublished = Modules\Blog\Models\Post::where('status', 'published')->latest()->get();
-    $recentPostsDrafts = Modules\Blog\Models\Post::where('status', 'draft')->latest()->get();
-@endphp
-
-@php
     use Spatie\Activitylog\Models\Activity;
     use Carbon\Carbon;
 
@@ -63,7 +54,7 @@
     {{-- =======================
          RECENT ACTIVITY (LEFT)
          ======================= --}}
-    <div class="col-xl-6">
+    <div class="col-xl-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h6 class="card-title mb-0 flex-grow-1">Recent Activity</h6>
@@ -228,151 +219,6 @@
         </div>
     </div>
     {{-- end col --}}
-
-    {{-- =========================
-         RECENT BLOG POSTS (RIGHT)
-         ========================= --}}
-    <div class="col-xl-6">
-        <div class="card">
-            <div class="card-header align-items-center d-flex">
-                <h6 class="card-title mb-0 flex-grow-1">Recent Blog Posts</h6>
-                <div class="flex-shrink-0">
-                    <ul class="nav justify-content-end nav-tabs-custom rounded card-header-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#posts-all-tab" role="tab">All</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#posts-published-tab" role="tab">Published</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#posts-draft-tab" role="tab">Drafts</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card-body px-0">
-                <div class="tab-content">
-                    {{-- All Posts --}}
-                    <div class="tab-pane active" id="posts-all-tab" role="tabpanel">
-                        <div class="table-responsive px-3" data-simplebar style="max-height: 352px;">
-                            <table class="table align-middle table-nowrap table-borderless">
-                                <tbody id="posts-all-body">
-                                    @forelse($recentPostsAll as $post)
-                                        <tr>
-                                            <td style="width: 50px;">
-                                                <div class="font-size-22 text-primary">
-                                                    <i class="bx bx-news d-block"></i>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="font-size-14 mb-1">
-                                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-dark">
-                                                            {{ $post->name }}
-                                                        </a>
-                                                    </h5>
-                                                    <p class="text-muted mb-0 font-size-12">
-                                                        {{ $post->created_at?->format('d M, Y') }}
-                                                    </p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-end">
-                                                    <h5 class="font-size-14 mb-0">{{ ucfirst($post->status) }}</h5>
-                                                    <p class="text-muted mb-0 font-size-12">Status</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr data-empty="1">
-                                            <td colspan="3" class="text-center text-muted">No posts found</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="posts-all-pager" class="px-3 pb-3"></div>
-                    </div>
-
-                    {{-- Published --}}
-                    <div class="tab-pane" id="posts-published-tab" role="tabpanel">
-                        <div class="table-responsive px-3" data-simplebar style="max-height: 352px;">
-                            <table class="table align-middle table-nowrap table-borderless">
-                                <tbody id="posts-published-body">
-                                    @forelse($recentPostsPublished as $post)
-                                        <tr>
-                                            <td style="width: 50px;">
-                                                <div class="font-size-22 text-success">
-                                                    <i class="bx bx-check-circle d-block"></i>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="font-size-14 mb-1">
-                                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-dark">
-                                                            {{ $post->name }}
-                                                        </a>
-                                                    </h5>
-                                                    <p class="text-muted mb-0 font-size-12">
-                                                        {{ $post->created_at?->format('d M, Y') }}
-                                                    </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr data-empty="1">
-                                            <td colspan="2" class="text-center text-muted">No published posts</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="posts-published-pager" class="px-3 pb-3"></div>
-                    </div>
-
-                    {{-- Drafts --}}
-                    <div class="tab-pane" id="posts-draft-tab" role="tabpanel">
-                        <div class="table-responsive px-3" data-simplebar style="max-height: 352px;">
-                            <table class="table align-middle table-nowrap table-borderless">
-                                <tbody id="posts-draft-body">
-                                    @forelse($recentPostsDrafts as $post)
-                                        <tr>
-                                            <td style="width: 50px;">
-                                                <div class="font-size-22 text-warning">
-                                                    <i class="bx bx-edit d-block"></i>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h5 class="font-size-14 mb-1">
-                                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-dark">
-                                                            {{ $post->name }}
-                                                        </a>
-                                                    </h5>
-                                                    <p class="text-muted mb-0 font-size-12">
-                                                        {{ $post->created_at?->format('d M, Y') }}
-                                                    </p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr data-empty="1">
-                                            <td colspan="2" class="text-center text-muted">No draft posts</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="posts-draft-pager" class="px-3 pb-3"></div>
-                    </div>
-                </div>
-                {{-- end tab content --}}
-            </div>
-            {{-- end card body --}}
-        </div>
-        {{-- end card --}}
-    </div>
 </div> {{-- end row --}}
 
 {{-- =========================
@@ -478,10 +324,6 @@
             paginateTable('activity-all-body', 'activity-all-pager', PAGE_SIZE);
             paginateTable('activity-this-body', 'activity-this-pager', PAGE_SIZE);
             paginateTable('activity-last-body', 'activity-last-pager', PAGE_SIZE);
-
-            paginateTable('posts-all-body', 'posts-all-pager', PAGE_SIZE);
-            paginateTable('posts-published-body', 'posts-published-pager', PAGE_SIZE);
-            paginateTable('posts-draft-body', 'posts-draft-pager', PAGE_SIZE);
         }
 
         // Re-init on tab change so hidden tabs render their first page correctly
@@ -497,15 +339,6 @@
                         break;
                     case '#last-month':
                         paginateTable('activity-last-body', 'activity-last-pager', PAGE_SIZE);
-                        break;
-                    case '#posts-all-tab':
-                        paginateTable('posts-all-body', 'posts-all-pager', PAGE_SIZE);
-                        break;
-                    case '#posts-published-tab':
-                        paginateTable('posts-published-body', 'posts-published-pager', PAGE_SIZE);
-                        break;
-                    case '#posts-draft-tab':
-                        paginateTable('posts-draft-body', 'posts-draft-pager', PAGE_SIZE);
                         break;
                 }
             });

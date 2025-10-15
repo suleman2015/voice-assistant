@@ -39,46 +39,8 @@ class WebController extends Controller
             JsonLd::addValues(json_decode(setting('seo_schema'), true) ?? []);
         }
 
-        $categories = Category::where('status', 'published')
-            ->whereNull('parent_id')
-            ->where('slug', '!=', 'articles-category')
-            ->orderBy('order', 'asc')
-            ->with(['posts' => function ($query) {
-                $query->where('status', 'published')->orderBy('id', 'desc')->get();
-            }])
-            ->get();
 
-        $today = now();
-
-        $upcomingEvents = Event::with([
-            'images:id,event_id,image_url',
-            'eventDates:id,event_id,date'
-        ])
-            ->where(function ($query) use ($today) {
-                $query
-                    ->whereHas('eventDates', function ($subQuery) use ($today) {
-                        $subQuery->whereDate('date', '>=', $today);
-                    })
-                    ->orWhereDate('event_date', '>=', $today);
-            })
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        $pastEvents = Event::with([
-            'images:id,event_id,image_url',
-            'eventDates:id,event_id,date'
-        ])
-            ->where(function ($query) use ($today) {
-                $query
-                    ->whereHas('eventDates', function ($subQuery) use ($today) {
-                        $subQuery->whereDate('date', '<', $today);
-                    })
-                    ->orWhereDate('event_date', '<', $today);
-            })
-            ->orderBy('event_date', 'desc')
-            ->get();
-
-        return view('frontend.index', compact('categories', 'upcomingEvents', 'pastEvents'));
+        return view('frontend.index');
     }
 
     public function categoryPage($slug)

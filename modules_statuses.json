@@ -2,16 +2,12 @@
     "Users": true,
     "UserRoles": true,
     "Media": true,
-    "Blog": true,
     "Setting": true,
     "Contact": true,
     "Recaptcha": true,
     "SEO": true,
     "Menu": true,
     "Newsletter": true,
-    "Events": true,
-    "Cases": true,
-    "UrlRedirector": true,
     "ActivityLog": true,
     "PageBuilder": true
 }
