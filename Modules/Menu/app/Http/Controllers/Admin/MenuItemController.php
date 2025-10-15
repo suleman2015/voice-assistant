@@ -124,12 +124,6 @@ class MenuItemController extends Controller
         if ($type === 'page') {
             return optional(\Modules\PageBuilder\Models\Page::find($id))->title ?? 'Page';
         }
-        if ($type === 'category') {
-            return optional(\Modules\Blog\Models\Category::find($id))->name ?? 'Category';
-        }
-        if ($type === 'post') {
-            return optional(\Modules\Blog\Models\Post::find($id))->name ?? 'Post';
-        }
         return 'Item';
     }
 
@@ -137,8 +131,6 @@ class MenuItemController extends Controller
     {
         return match ($type) {
             'page'     => \Modules\PageBuilder\Models\Page::class,
-            'category' => \Modules\Blog\Models\Category::class,
-            'post'     => \Modules\Blog\Models\Post::class,
             default    => null,
         };
     }
