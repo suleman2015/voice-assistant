@@ -1,0 +1,11 @@
+{
+    "name": "Voice",
+    "alias": "voice",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Voice\\Providers\\VoiceServiceProvider"
+    ],
+    "files": []
+}

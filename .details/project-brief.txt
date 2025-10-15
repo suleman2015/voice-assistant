@@ -1,0 +1,1 @@
+Voice Assistant is a Laravel 10 modular platform that merges CMS tooling with AI chat, conversation history, and voice note processing. Manage features through `Modules/`, configure runtime via `.env` and `modules_statuses.json`, and serve the Vite/Tailwind frontend from `public/index.php`.

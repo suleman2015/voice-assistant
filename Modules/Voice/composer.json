@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/voice",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Voice\\": "app/",
+            "Modules\\Voice\\Database\\Factories\\": "database/factories/",
+            "Modules\\Voice\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Voice\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Conversations",
+    "alias": "conversations",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Conversations\\Providers\\ConversationsServiceProvider"
+    ],
+    "files": []
+}

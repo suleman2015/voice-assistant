@@ -9,5 +9,9 @@
     "Menu": true,
     "Newsletter": true,
     "ActivityLog": true,
-    "PageBuilder": true
+    "PageBuilder": true,
+    "AI": true,
+    "Conversations": true,
+    "Voice": true,
+    "ChatUI": true
 }

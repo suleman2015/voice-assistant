@@ -1,0 +1,74 @@
+voice-assistant/
+  app/                      # Core Laravel application logic
+    Console/
+    Exceptions/
+    Http/
+      Controllers/
+      Middleware/
+      Requests/
+    Models/
+    Providers/
+  bootstrap/                # Framework bootstrap and cache bootstrap files
+  config/                   # Configuration per subsystem
+  database/
+    factories/
+    migrations/
+    seeders/
+  Modules/                  # Self-contained feature modules (Nwidart package)
+    ActivityLog/
+    AI/                     # LLM adapters, service providers, config, assets
+      app/
+        Adapters/
+        Contracts/
+        Http/
+        Providers/
+      config/
+      database/
+      resources/
+      routes/
+      tests/
+    ChatUI/                 # Chat interface controllers, views, SPA assets
+    Contact/
+    Conversations/          # Conversation + Message models, migrations, routes
+      app/
+        Http/
+        Models/
+        Providers/
+      database/
+        migrations/         # conversations, messages tables
+    Media/
+    Menu/
+      app/
+        Http/
+          Controllers/
+            Admin/
+      Helpers/
+      resources/
+        views/
+          admin/
+    Newsletter/
+    PageBuilder/
+    Recaptcha/
+    SEO/
+    Setting/
+    UserRoles/
+    Users/
+    Voice/                  # Voice note ingestion, normalization, STT tracking
+      app/
+      database/
+        migrations/         # voice_notes table
+  public/                   # Web root (index.php, published assets)
+  resources/
+    js/
+    lang/
+    views/
+      frontend/
+        components/
+          _footer.blade.php
+  routes/                   # web.php, api.php, console.php definitions
+  storage/                  # Logs, caches, compiled views, user uploads
+  tests/                    # Feature and unit tests
+  vendor/                   # Composer dependencies
+  composer.json
+  package.json
+  README.md
