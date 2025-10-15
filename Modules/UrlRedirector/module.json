@@ -1,0 +1,11 @@
+{
+    "name": "UrlRedirector",
+    "alias": "urlredirector",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\UrlRedirector\\Providers\\UrlRedirectorServiceProvider"
+    ],
+    "files": []
+}

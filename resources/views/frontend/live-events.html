@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Live Events - Onc Brothers</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="assets/frontend/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/frontend/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="assets/frontend/css/style.css" />
+        <link rel="stylesheet" href="assets/frontend/css/page.css" />
+        <link rel="stylesheet" href="assets/frontend/css/responsive.css" />
+    </head>
+    
+    <body>
+        
+    <header class="main-header">
+        <div class="container-fluid px-4">
+            <!-- DESKTOP NAV -->
+            <nav class="navbar navbar-header desktop-header">
+                <div class="d-flex align-items-center">
+                    <a href="{{ route('home') }}" class="me-5">
+                        <img src="assets/frontend/images/logo.webp" class="img-fluid logo-img" width="115" height="32" alt="logo">
+                    </a>
+                    <ul class="navlist">
+                        <li class="list_item"><a href="{{ route('home') }}" class="nav_link">Home</a></li>
+                        <li class="list_item"><a href="live-events.html" class="nav_link">Live Events</a></li>
+                        <!-- Algorithms with sub categories -->
+                        <li class="list_item dropdown">
+                            <a href="blog-category.html" class="nav_link">Algorithms <i class="ri-arrow-down-s-line"></i></a>
+                            <ul class="dropdown-menu-box">
+                                <li><a href="blog-category.html">Breast Cancer</a></li>
+                                <li><a href="blog-category.html">Lung Cancer</a></li>
+                                <li><a href="blog-category.html">GI Cancers</a></li>
+                            </ul>
+                        </li>
+                        <!-- Conferences with sub categories -->
+                        <li class="list_item dropdown">
+                            <a href="blog-category.html" class="nav_link">Conferences <i class="ri-arrow-down-s-line"></i></a>
+                            <ul class="dropdown-menu-box">
+                                <li><a href="blog-category.html">ASCO</a></li>
+                                <li><a href="blog-category.html">ESMO</a></li>
+                                <li><a href="blog-category.html">ASH</a></li>
+                            </ul>
+                        </li>
+                        <!-- Journal Club with sub categories -->
+                        <li class="list_item dropdown">
+                            <a href="blog-category.html" class="nav_link">Journal Club <i class="ri-arrow-down-s-line"></i></a>
+                            <ul class="dropdown-menu-box">
+                                <li><a href="blog-category.html">Case Studies</a></li>
+                                <li><a href="blog-category.html">Randomized Trials</a></li>
+                                <li><a href="blog-category.html">Reviews</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tox Check with sub categories -->
+                        <li class="list_item dropdown">
+                            <a href="blog-category.html" class="nav_link">Tox Check <i class="ri-arrow-down-s-line"></i></a>
+                            <ul class="dropdown-menu-box">
+                                <li><a href="blog-category.html">Chemo Toxicity</a></li>
+                                <li><a href="blog-category.html">Immunotherapy Toxicity</a></li>
+                            </ul>
+                        </li>
+                        <!-- Multi‑D Rounds with sub categories -->
+                        <li class="list_item dropdown">
+                            <a href="blog-category.html" class="nav_link">Multi‑D Rounds <i class="ri-arrow-down-s-line"></i></a>
+                            <ul class="dropdown-menu-box">
+                                <li><a href="blog-category.html">Tumor Boards</a></li>
+                                <li><a href="blog-category.html">Grand Rounds</a></li>
+                            </ul>
+                        </li>
+                        <li class="list_item"><a href="contact.html" class="nav_link">Contact</a></li>
+                    </ul>
+                </div>
+                <ul class="social_linklist">
+                    <li><a href="https://twitter.com/oncbrothers" target="_blank" class="social_icon twitter"><i class="ri-twitter-x-line"></i></a></li>
+                    <li class="mx-2"><a href="https://www.youtube.com/@oncologybrothers" target="_blank" class="social_icon youtube"><i class="ri-youtube-fill"></i></a></li>
+                    <li><a href="https://www.instagram.com/oncbrothers/" target="_blank" class="social_icon instagram"><i class="ri-instagram-fill"></i></a></li>
+                </ul>
+            </nav>
+            <!-- MOBILE NAV BAR -->
+            <nav class="navbar navbar-header pt-2 mobile-header">
+                <a href="{{ route('home') }}">
+                    <img src="assets/frontend/images/logo.webp" class="img-fluid logo-img" width="115" height="32" alt="logo">
+                </a>
+                <p class="mobile-toggle mb-0" style="padding:10px;cursor:pointer;">☰ Menu</p>
+            </nav>
+            <!-- MOBILE MENU -->
+            <div class="mobile_menu">
+                <ul class="mobile-ul">
+                    <li class="list_item"><a href="{{ route('home') }}" class="nav_link">Home</a></li>
+                    <li class="list_item"><a href="live-events.html" class="nav_link">Live Events</a></li>
+                    <!-- Algorithms with sub categories -->
+                    <li class="list_item dropdown">
+                        <div class="menu-item-wrapper">
+                            <a href="blog-category.html" class="nav_link">Algorithms</a>
+                            <button class="dropdown-toggle-btn">+</button>
+                        </div>
+                        <ul class="dropdown-menu-box closed">
+                            <li><a href="blog-category.html">Breast Cancer</a></li>
+                            <li><a href="blog-category.html">Lung Cancer</a></li>
+                            <li><a href="blog-category.html">GI Cancers</a></li>
+                        </ul>
+                    </li>
+                    <!-- Conferences with sub categories -->
+                    <li class="list_item dropdown">
+                        <div class="menu-item-wrapper">
+                            <a href="blog-category.html" class="nav_link">Conferences</a>
+                            <button class="dropdown-toggle-btn">+</button>
+                        </div>
+                        <ul class="dropdown-menu-box closed">
+                            <li><a href="blog-category.html">ASCO</a></li>
+                            <li><a href="blog-category.html">ESMO</a></li>
+                            <li><a href="blog-category.html">ASH</a></li>
+                        </ul>
+                    </li>
+                    <!-- Journal Club with sub categories -->
+                    <li class="list_item dropdown">
+                        <div class="menu-item-wrapper">
+                            <a href="blog-category.html" class="nav_link">Journal Club</a>
+                            <button class="dropdown-toggle-btn">+</button>
+                        </div>
+                        <ul class="dropdown-menu-box closed">
+                            <li><a href="blog-category.html">Case Studies</a></li>
+                            <li><a href="blog-category.html">Randomized Trials</a></li>
+                            <li><a href="blog-category.html">Reviews</a></li>
+                        </ul>
+                    </li>
+                    <!-- Tox Check with sub categories -->
+                    <li class="list_item dropdown">
+                        <div class="menu-item-wrapper">
+                            <a href="blog-category.html" class="nav_link">Tox Check</a>
+                            <button class="dropdown-toggle-btn">+</button>
+                        </div>
+                        <ul class="dropdown-menu-box closed">
+                            <li><a href="blog-category.html">Chemo Toxicity</a></li>
+                            <li><a href="blog-category.html">Immunotherapy Toxicity</a></li>
+                        </ul>
+                    </li>
+                    <!-- Multi‑D Rounds with sub categories -->
+                    <li class="list_item dropdown">
+                        <div class="menu-item-wrapper">
+                            <a href="blog-category.html" class="nav_link">Multi‑D Rounds</a>
+                            <button class="dropdown-toggle-btn">+</button>
+                        </div>
+                        <ul class="dropdown-menu-box closed">
+                            <li><a href="blog-category.html">Tumor Boards</a></li>
+                            <li><a href="blog-category.html">Grand Rounds</a></li>
+                        </ul>
+                    </li>
+                    <li class="list_item"><a href="contact.html" class="nav_link">Contact</a></li>
+                </ul>
+                <ul class="social_linklist">
+                    <li><a href="https://twitter.com/oncbrothers" target="_blank" class="social_icon twitter"><i class="ri-twitter-x-line"></i></a></li>
+                    <li class="mx-2"><a href="https://www.youtube.com/@oncologybrothers" target="_blank" class="social_icon youtube"><i class="ri-youtube-fill"></i></a></li>
+                    <li><a href="https://www.instagram.com/oncbrothers/" target="_blank" class="social_icon instagram"><i class="ri-instagram-fill"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+        <div class="home_banner general-banner position-relative" style="background-image: url('assets/frontend/images/banner-bg.webp'); background-size:cover; background-position:center; ">
+            <div class="top_bg2"></div>
+            <div class="home_banner__inner position-relative">
+                <div class="container">
+                    <h1 class="text-center banner-h fw-bold">Live Events</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container py-5">
+            <h3 class="mb-4 fw-bold">Upcoming Events</h3>
+            <div class="row">
+                
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/frontend/images/agenda.webp" class="card-img-top" alt="Upstate Cancer Symposium">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Upstate Cancer Symposium</h5>
+                        <p class="card-text small text-muted"><i class='ri-calendar-2-line'></i> October 15, 2025<br><i class='ri-map-pin-line'></i> Virtual</p>
+                        <a href="#" class="mt-auto btn btn_pro">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/frontend/images/banner2.webp" class="card-img-top" alt="Emerging Therapies Conference">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Emerging Therapies Conference</h5>
+                        <p class="card-text small text-muted"><i class='ri-calendar-2-line'></i> November 5, 2025<br><i class='ri-map-pin-line'></i> New York, NY</p>
+                        <a href="#" class="mt-auto btn btn_pro">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/frontend/images/article.webp" class="card-img-top" alt="Journal Club Live">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Journal Club Live</h5>
+                        <p class="card-text small text-muted"><i class='ri-calendar-2-line'></i> December 1, 2025<br><i class='ri-map-pin-line'></i> Online Webinar</p>
+                        <a href="#" class="mt-auto btn btn_pro">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        
+            </div>
+        </div>
+        
+    <footer class="footer-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-lg-4 mb-md-0 mb-4">
+                    <a href="{{ route('home') }}">
+                        <img src="assets/frontend/images/logo.webp" class="img-fluid logo-footer" width="115" height="32" alt="logo" />
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-md-0 mb-3">
+                    <div class="widget-h mb-4">
+                        <p class="mb-0">Quick Links</p>
+                    </div>
+                    <ul class="footer_nav">
+                        <li><a href="https://twitter.com/oncbrothers?lang=en" target="_blank" title="X (Twitter)" class="f_link">X (Twitter)</a></li>
+                        <li><a href="https://www.youtube.com/@oncologybrothers" target="_blank" title="YouTube" class="f_link">YouTube</a></li>
+                        <li><a href="https://www.instagram.com/oncbrothers/" target="_blank" title="Instagram" class="f_link">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget-h mb-4">
+                        <p class="mb-0">About us</p>
+                    </div>
+                    <ul class="footer_nav">
+                        <li><a href="dr-rahul.html" title="Dr. Rahul Gosain" class="f_link">Dr. Rahul Gosain</a></li>
+                        <li><a href="dr-rohit.html" title="Dr. Rohit Gosain" class="f_link">Dr. Rohit Gosain</a></li>
+                        <li><a href="privacy-policy.html" title="Privacy Policy" class="f_link">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html" title="Terms and Conditions" class="f_link">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mini_footer">
+                <ul class="social_linklist">
+                    <li><a href="https://twitter.com/oncbrothers?lang=en" target="_blank" class="social_icon twitter" aria-label="Follow us on Twitter"><i class="ri-twitter-x-line"></i></a></li>
+                    <li class="mx-2"><a href="https://www.youtube.com/@oncologybrothers" target="_blank" class="social_icon youtube" aria-label="Follow us on YouTube"><i class="ri-youtube-fill"></i></a></li>
+                    <li><a href="https://www.instagram.com/oncbrothers/" target="_blank" class="social_icon instagram" aria-label="Follow us on Instagram"><i class="ri-instagram-fill"></i></a></li>
+                </ul>
+                <p class="text-center mb-0">© 2025 oncbrothers.com | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+        <div class="scroll-to-top show"><button>↑</button></div>
+        <div class="cookie-popup">
+            <p>This website uses <a href="cookie-policy.html" class="text-link-primary" target="_blank">Cookies</a> to ensure you receive the best experience.</p>
+            <div class="cookie-buttons">
+                <button class="accept-btn">I Agree</button>
+                <button class="decline-btn">No Thanks</button>
+            </div>
+        </div>
+        
+    <script src="assets/frontend/js/jquery.min.js"></script>
+    <script src="assets/frontend/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/frontend/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/frontend/js/scripts.js"></script>
+    
+    
+    </body>
+    </html>
