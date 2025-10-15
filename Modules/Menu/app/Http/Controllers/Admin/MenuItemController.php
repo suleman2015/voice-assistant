@@ -41,7 +41,7 @@ class MenuItemController extends Controller
         $data = $request->validate([
             'title'         => ['required', 'string', 'max:255'],
             'type'          => ['required', Rule::in(['custom', 'page', 'category', 'post', 'route'])],
-            'url'           => ['nullable', 'url'],
+            'url'           => ['nullable', 'string', 'max:255'], // Only for 'custom' type
             'reference_id'  => ['nullable', 'integer'],
             'route_name'    => ['nullable', 'string'],
             'route_params'  => ['nullable', 'array'],
@@ -72,7 +72,7 @@ class MenuItemController extends Controller
         // Inline edit for title + url (only for custom)
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'url'   => ['nullable', 'url'], // Only meaningful when $item->type === 'custom'
+            'url'   => ['nullable', 'string', 'max:255'], // Only meaningful when $item->type === 'custom'
         ]);
 
         $item->title = $data['title'];

@@ -72,9 +72,8 @@ class MenuController extends Controller
         $menu = Menu::findOrFail($id);
         $menu->load('items.children');
         $pages      = Page::select('id', 'title')->latest()->get();
-        $categories = Category::select('id', 'name')->with('children')->whereNull('parent_id')->get();
 
-        return view('menu::admin.edit', compact('menu', 'categories', 'pages'));
+        return view('menu::admin.edit', compact('menu', 'pages'));
     }
 
     public function update(Request $request, $id)

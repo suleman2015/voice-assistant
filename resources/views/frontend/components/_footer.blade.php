@@ -25,14 +25,7 @@
                     <p class="mb-0">About us</p>
                 </div>
                 <ul class="footer_nav">
-                    <li><a title="DR. RAHUL GOSAIN" class="f_link" href="{{ route('rohitGosainMd') }}">DR. RAHUL
-                            GOSAIN</a></li>
-                    <li><a title="DR. ROHIT GOSAIN" class="f_link" href="{{ route('rohitGosainMd') }}">DR. ROHIT
-                            GOSAIN</a></li>
-                    <li><a title="PRIVACY POLICY" class="f_link" href="{{ route('privacyPolicy') }}">PRIVACY POLICY</a>
-                    </li>
-                    <li><a title="TERMS AND CONDITIONS" class="f_link" href="{{ route('termsAndConditions') }}">TERMS AND
-                            CONDITIONS</a></li>
+            
                 </ul>
             </div>
 

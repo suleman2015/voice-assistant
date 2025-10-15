@@ -3,10 +3,10 @@
 
 @section('content')
     <div class="container-fluid px-2 pt-md-4">
-         <div class="row">
+        <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                   
+
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <div class="col-lg-4">
                 <div class="menu-sticky">
                     <div class="menu-side-scroll">
-                          {{-- Pages --}}
+                        {{-- Pages --}}
                         <div class="card mb-2">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0">Pages</h6>
@@ -41,62 +41,6 @@
                                 </form>
                             </div>
                         </div>
-                        {{-- Categories --}}
-                     <div class="card mb-2">
-    <div class="card-header">
-        <h6 class="mb-0">Categories</h6>
-    </div>
-    <div class="card-body">
-        <form method="POST" action="{{ route('admin.menus.items.store', $menu->id) }}">
-            @csrf
-            <input type="hidden" name="type" value="category">
-            <div class="border rounded p-2" style="max-height:300px;overflow:auto">
-                @forelse($categories as $cat)
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="references[]"
-                               value="{{ $cat->id }}" id="cat{{ $cat->id }}">
-                        <label class="form-check-label" for="cat{{ $cat->id }}">
-                            {{ $cat->name }}
-                        </label>
-
-                        @if($cat->children->count() > 0)
-                            <!-- Recursive call to display child categories -->
-                            <div class="ms-3">
-                                @foreach($cat->children as $child)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="references[]"
-                                               value="{{ $child->id }}" id="cat{{ $child->id }}">
-                                        <label class="form-check-label" for="cat{{ $child->id }}">
-                                            {{ $child->name }}
-                                        </label>
-
-                                        @if($child->children->count() > 0)
-                                            <!-- Recursively display children of this child -->
-                                            <div class="ms-3">
-                                                @foreach($child->children as $grandchild)
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="references[]"
-                                                               value="{{ $grandchild->id }}" id="cat{{ $grandchild->id }}">
-                                                        <label class="form-check-label" for="cat{{ $grandchild->id }}">
-                                                            {{ $grandchild->name }}
-                                                        </label>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        @endif
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-                    </div>
-                @empty
-                    <p class="text-muted mb-0">No categories found.</p>
-                @endforelse
-            </div>
-            <button class="btn btn-sm btn-outline-primary mt-2">+ Add to menu</button>
-        </form>
-    </div>
-</div>
 
 
                         {{-- Custom link --}}
@@ -114,8 +58,8 @@
                                     </div>
                                     <div class="mb-2">
                                         <label class="form-label">URL</label>
-                                        <input type="url" class="form-control" name="url"
-                                            placeholder="https://example.com" required>
+                                        <input type="text" class="form-control" name="url"
+                                            placeholder="/home" required>
                                     </div>
                                     <button class="btn btn-sm btn-outline-primary">+ Add link</button>
                                 </form>
@@ -244,44 +188,52 @@
     <style>
         /* Make the floating element while dragging clearly visible */
         .dd-dragel {
-          position: absolute;      /* nestable sets this; we strengthen visuals */
-          z-index: 2000;
-          pointer-events: none;
-          opacity: .98;
+            position: absolute;
+            /* nestable sets this; we strengthen visuals */
+            z-index: 2000;
+            pointer-events: none;
+            opacity: .98;
         }
+
         .dd-dragel .menu-node {
-          background: #fff;
-          border: 1px solid #cfd6dd;
-          border-radius: .5rem;
-          box-shadow: 0 10px 22px rgba(15, 23, 42, .15);
-          padding: .5rem .5rem .5rem .25rem;
+            background: #fff;
+            border: 1px solid #cfd6dd;
+            border-radius: .5rem;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, .15);
+            padding: .5rem .5rem .5rem .25rem;
         }
-      
+
         /* The placeholder where the item will land */
         .dd-placeholder {
-          background: #eef5ff;
-          border: 1px dashed #6ea8fe;
-          height: 44px;            /* close to your item height */
-          margin: .25rem 0;
-          border-radius: .5rem;
+            background: #eef5ff;
+            border: 1px dashed #6ea8fe;
+            height: 44px;
+            /* close to your item height */
+            margin: .25rem 0;
+            border-radius: .5rem;
         }
-      
+
         /* The registered handle looks/behaves like a grip */
         .dd-handle.drag-handle {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 18px;
-          height: 18px;
-          margin-right: 8px;
-          cursor: grab;
-          color: #94a3b8;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: grab;
+            color: #94a3b8;
         }
-        .dd-handle.drag-handle:hover { color:#64748b; }
-      
+
+        .dd-handle.drag-handle:hover {
+            color: #64748b;
+        }
+
         /* Indentation for children stays clean */
-        .dd-list .dd-list { margin-left: 1.25rem; }
-      </style>
+        .dd-list .dd-list {
+            margin-left: 1.25rem;
+        }
+    </style>
 @endpush
 
 
@@ -293,11 +245,11 @@
         $(function() {
             // Nestable
             $('#menuTree').nestable({
-            maxDepth: 30,
-            handleClass: 'dd-handle',   // <- use the grip only
-            noDragClass: 'dd-nodrag',   // <- anything with this class won't drag
-            expandBtnHTML: '',
-            collapseBtnHTML: ''
+                maxDepth: 30,
+                handleClass: 'dd-handle', // <- use the grip only
+                noDragClass: 'dd-nodrag', // <- anything with this class won't drag
+                expandBtnHTML: '',
+                collapseBtnHTML: ''
             });
             // Save order (drag & drop)
             $('#saveTree').on('click', function() {
@@ -327,11 +279,12 @@
                         timer: 2000,
                         showConfirmButton: false
                     });
-                }).fail(function(xhr){
+                }).fail(function(xhr) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: xhr.responseJSON?.message || 'Something went wrong while saving.'
+                        text: xhr.responseJSON?.message ||
+                            'Something went wrong while saving.'
                     });
                 });
             });
